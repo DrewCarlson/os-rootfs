@@ -48,9 +48,6 @@ rm -fr "${ROOTFS_DIR}"
 # define ARCH dependent settings
 DEBOOTSTRAP_CMD="debootstrap"
 
-# tell Linux how to start binaries that need emulation to use Qemu
-update-binfmts --enable "qemu-${QEMU_ARCH}"
-
 # debootstrap a minimal Debian Bullseye rootfs
 ${DEBOOTSTRAP_CMD} \
   ${DEBOOTSTRAP_KEYRING_OPTION} \
