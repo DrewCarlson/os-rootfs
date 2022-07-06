@@ -30,7 +30,6 @@ touch /etc/resolv.conf
 systemctl enable systemd-resolved
 
 # enable ntp with timesyncd
-sed -i 's|#Servers=|Servers=|g' /etc/systemd/timesyncd.conf
 systemctl enable systemd-timesyncd
 
 # set default locales to 'en_US.UTF-8'
