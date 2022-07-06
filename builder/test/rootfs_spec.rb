@@ -23,7 +23,7 @@ elsif ENV['VARIANT'] == 'debian'
     it { should be_file }
     its(:content) { should contain 'deb http://httpredir.debian.org/debian bullseye main' }
     its(:content) { should contain 'deb http://httpredir.debian.org/debian bullseye-updates main' }
-    its(:content) { should contain 'deb http://security.debian.org/ bullseye/updates main' }
+    its(:content) { should contain 'deb http://security.debian.org/ bullseye-security main' }
   end
 end
 
