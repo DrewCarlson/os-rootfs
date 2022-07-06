@@ -46,14 +46,10 @@ mkdir -p /workspace
 rm -fr "${ROOTFS_DIR}"
 
 # define ARCH dependent settings
-if [ -z "${QEMU_ARCH}" ]; then
-  DEBOOTSTRAP_CMD="debootstrap"
-else
-  DEBOOTSTRAP_CMD="qemu-debootstrap"
+DEBOOTSTRAP_CMD="debootstrap"
 
-  # tell Linux how to start binaries that need emulation to use Qemu
-  update-binfmts --enable "qemu-${QEMU_ARCH}"
-fi
+# tell Linux how to start binaries that need emulation to use Qemu
+update-binfmts --enable "qemu-${QEMU_ARCH}"
 
 # debootstrap a minimal Debian Bullseye rootfs
 ${DEBOOTSTRAP_CMD} \
