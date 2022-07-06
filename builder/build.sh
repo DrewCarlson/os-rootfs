@@ -55,13 +55,13 @@ else
   update-binfmts --enable "qemu-${QEMU_ARCH}"
 fi
 
-# debootstrap a minimal Debian Buster rootfs
+# debootstrap a minimal Debian Bullseye rootfs
 ${DEBOOTSTRAP_CMD} \
   ${DEBOOTSTRAP_KEYRING_OPTION} \
   --arch="${BUILD_ARCH}" \
   --include="${DEFAULT_PACKAGES_INCLUDE}" \
   --exclude="${DEFAULT_PACKAGES_EXCLUDE}" \
-  buster \
+  bullseye \
   "${ROOTFS_DIR}" \
   "${DEBOOTSTRAP_URL}"
 
