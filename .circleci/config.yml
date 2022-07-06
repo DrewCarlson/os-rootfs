@@ -16,12 +16,6 @@ jobs:
 #            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make armhf-raspbian
 #          no_output_timeout: 1800
 
-      - run:
-          name: Create Raspbian ARM 64bit
-          command: |
-            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make arm64-raspbian
-          no_output_timeout: 1800
-
 #      - run:
 #          name: Create Debian ARM 32bit
 #          command: |

@@ -22,9 +22,6 @@ armhf-debian: build
 armhf-raspbian: build
 	docker run --rm $(DEFAULT_OPTS) -e BUILD_ARCH=armhf -e QEMU_ARCH=arm -e TRAVIS_TAG -e HYPRIOT_OS_VERSION -e VARIANT=raspbian -v $(shell pwd):/workspace --privileged rootfs-builder
 
-arm64-raspbian: build
-	docker run --rm $(DEFAULT_OPTS) -e BUILD_ARCH=arm64 -e QEMU_ARCH=aarch64 -e TRAVIS_TAG -e HYPRIOT_OS_VERSION -e VARIANT=raspbian -v $(shell pwd):/workspace --privileged rootfs-builder
-
 mips: build
 	docker run --rm $(DEFAULT_OPTS) -e BUILD_ARCH=mips -e QEMU_ARCH=mips -e TRAVIS_TAG -e HYPRIOT_OS_VERSION -v $(shell pwd):/workspace --privileged rootfs-builder
 
