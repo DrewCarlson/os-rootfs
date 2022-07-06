@@ -10,17 +10,17 @@ jobs:
           command: |
             make shellcheck
 
-#      - run:
-#          name: Create Raspbian ARM 32bit
-#          command: |
-#            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make armhf-raspbian
-#          no_output_timeout: 1800
+      - run:
+          name: Create Raspbian ARM 32bit
+          command: |
+            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make armhf-raspbian
+          no_output_timeout: 1800
 
-#      - run:
-#          name: Create Debian ARM 32bit
-#          command: |
-#            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make armhf-debian
-#          no_output_timeout: 1800
+      - run:
+          name: Create Debian ARM 32bit
+          command: |
+            HYPRIOT_OS_VERSION=${CIRCLE_TAG} make armhf-debian
+          no_output_timeout: 1800
 
       - run:
           name: Create Debian ARM 64bit
