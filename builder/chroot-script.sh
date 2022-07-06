@@ -29,9 +29,6 @@ mkdir -p "$(dirname "$DEST")"
 touch /etc/resolv.conf
 systemctl enable systemd-resolved
 
-# enable ntp with timesyncd
-systemctl enable systemd-timesyncd
-
 # set default locales to 'en_US.UTF-8'
 echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
