@@ -1,4 +1,4 @@
-FROM hypriot/image-builder:latest
+FROM ghcr.io/drewcarlson/image-builder:master
 
 RUN apt-get update && apt-get install -y \
     binfmt-support \
