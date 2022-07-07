@@ -16,7 +16,7 @@ end
 if ENV['VARIANT'] == 'raspbian'
   describe file('etc/apt/sources.list') do
     it { should be_file }
-    its(:content) { should contain 'deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi' }
+    its(:content) { should contain 'deb http://archive.raspberrypi.org/debian/ bullseye main contrib non-free rpi' }
   end
 elsif ENV['VARIANT'] == 'debian'
   describe file('etc/apt/sources.list') do
@@ -90,12 +90,7 @@ end
 
 describe file('etc/os-release') do
   it { should be_file }
-  if ENV['VARIANT'] == 'raspbian'
-    its(:content) { should contain /ID=raspbian/ }
-    its(:content) { should contain /ID_LIKE=debian/ }
-  else
-    its(:content) { should contain /ID=debian/ }
-  end
+  its(:content) { should contain /ID=debian/ }
   its(:content) { should contain /HYPRIOT_OS=/ }
   its(:content) { should contain /HYPRIOT_OS_VERSION=/ }
   if ENV.fetch('TRAVIS_TAG','') != ''

@@ -24,17 +24,17 @@ HYPRIOT_OS_VERSION="${HYPRIOT_OS_VERSION:-dirty}"
 ROOTFS_DIR="/debian-${BUILD_ARCH}"
 DEBOOTSTRAP_URL="http://ftp.debian.org/debian"
 DEBOOTSTRAP_KEYRING_OPTION=""
-DEFAULT_PACKAGES_INCLUDE="apt-transport-https,avahi-daemon,bash-completion,binutils,ca-certificates,curl,git,htop,locales,net-tools,ntp,openssh-server,parted,sudo,usbutils,wget,libpam-systemd"
+DEFAULT_PACKAGES_INCLUDE="apt-transport-https,avahi-daemon,bash-completion,binutils,ca-certificates,curl,git,htop,locales,net-tools,ntp,openssh-server,parted,sudo,usbutils,wget,libpam-systemd,gnupg"
 DEFAULT_PACKAGES_EXCLUDE="debfoster"
 
 if [[ "${VARIANT}" = "raspbian" ]]; then
-  DEBOOTSTRAP_URL="http://raspbian.raspberrypi.org/raspbian/"
-  DEBOOTSTRAP_KEYRING_OPTION="--keyring=/etc/apt/trusted.gpg"
+  #DEBOOTSTRAP_URL="http://archive.raspberrypi.org/debian/"
+  #DEBOOTSTRAP_KEYRING_OPTION="--keyring=/etc/apt/trusted.gpg"
 
   # for Raspbian we need an extra gpg key to be able to access the repository
   mkdir -p /builder/files/tmp
-  wget -v -O "/builder/files/tmp/raspbian.public.key" http://raspbian.raspberrypi.org/raspbian.public.key
-  get_gpg A0DA38D0D76E8B5D638872819165938D90FDDD2E "/builder/files/tmp/raspbian.public.key"
+  wget -v -O "/builder/files/tmp/raspbian.public.key" http://archive.raspberrypi.org/debian/raspberrypi.gpg.key
+  get_gpg CF8A1AF502A2AA2D763BAE7E82B129927FA3303E "/builder/files/tmp/raspbian.public.key"
 
 fi
 
