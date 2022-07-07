@@ -43,6 +43,7 @@ make amd64
 make armhf-debian
 make armhf-raspbian
 make arm64-debian
+make arm64-raspbian
 make mips
 ```
 

@@ -29,7 +29,7 @@ DEFAULT_PACKAGES_EXCLUDE="debfoster"
 
 if [[ "${VARIANT}" = "raspbian" ]]; then
   #DEBOOTSTRAP_URL="http://archive.raspberrypi.org/debian/"
-  #DEBOOTSTRAP_KEYRING_OPTION="--keyring=/etc/apt/trusted.gpg"
+  DEBOOTSTRAP_KEYRING_OPTION="--keyring=/etc/apt/trusted.gpg"
 
   # for Raspbian we need an extra gpg key to be able to access the repository
   mkdir -p /builder/files/tmp
@@ -50,7 +50,7 @@ DEBOOTSTRAP_CMD="debootstrap"
 
 # debootstrap a minimal Debian Bullseye rootfs
 ${DEBOOTSTRAP_CMD} \
-  ${DEBOOTSTRAP_KEYRING_OPTION} \
+  "${DEBOOTSTRAP_KEYRING_OPTION}" \
   --arch="${BUILD_ARCH}" \
   --include="${DEFAULT_PACKAGES_INCLUDE}" \
   --exclude="${DEFAULT_PACKAGES_EXCLUDE}" \

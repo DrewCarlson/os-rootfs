@@ -5,7 +5,7 @@ default: build
 build:
 	docker build -t rootfs-builder .
 
-all: build amd64 i386 arm64-debian arm64-raspbian armhf-debian mips arm64-raspbian
+all: build amd64 i386 arm64-debian armhf-raspbian armhf-debian mips arm64-raspbian
 
 amd64: build
 	docker run --rm $(DEFAULT_OPTS) -e BUILD_ARCH=amd64 -e TRAVIS_TAG -e HYPRIOT_OS_VERSION -v $(shell pwd):/workspace --privileged rootfs-builder
