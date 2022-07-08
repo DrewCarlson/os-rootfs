@@ -1,3 +1,15 @@
-deb http://archive.raspberrypi.org/debian/ bullseye main contrib non-free rpi
-# Uncomment line below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://archive.raspberrypi.org/debian/ bullseye main contrib non-free rpi
+# Legacy Raspberry PI OS Buster repository arm64
+deb https://archive.raspberrypi.org/debian/ buster main
+
+# Raspberry PI OS Bullseye repository arm64
+deb https://archive.raspberrypi.org/debian/ bullseye main
+
+deb http://httpredir.debian.org/debian bullseye main
+deb-src http://httpredir.debian.org/debian bullseye main
+
+deb http://httpredir.debian.org/debian bullseye-updates main
+deb-src http://httpredir.debian.org/debian bullseye-updates main
+
+deb http://security.debian.org/ bullseye-security main
+deb-src http://security.debian.org/ bullseye-security main
+

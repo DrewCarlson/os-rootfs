@@ -23,14 +23,10 @@ VARIANT="${VARIANT:-debian}"
 HYPRIOT_OS_VERSION="${HYPRIOT_OS_VERSION:-dirty}"
 ROOTFS_DIR="/debian-${BUILD_ARCH}"
 DEBOOTSTRAP_URL="http://ftp.debian.org/debian"
-DEBOOTSTRAP_KEYRING_OPTION=""
 DEFAULT_PACKAGES_INCLUDE="apt-transport-https,avahi-daemon,bash-completion,binutils,ca-certificates,curl,git,htop,locales,net-tools,ntp,openssh-server,parted,sudo,usbutils,wget,libpam-systemd,gnupg"
 DEFAULT_PACKAGES_EXCLUDE="debfoster"
 
 if [[ "${VARIANT}" = "raspbian" ]]; then
-  #DEBOOTSTRAP_URL="http://archive.raspberrypi.org/debian/"
-  #DEBOOTSTRAP_KEYRING_OPTION="--keyring=/etc/apt/trusted.gpg"
-
   # for Raspbian we need an extra gpg key to be able to access the repository
   mkdir -p /builder/files/tmp
   wget -v -O "/builder/files/tmp/raspbian.public.key" http://archive.raspberrypi.org/debian/raspberrypi.gpg.key
@@ -50,7 +46,6 @@ DEBOOTSTRAP_CMD="debootstrap"
 
 # debootstrap a minimal Debian Bullseye rootfs
 ${DEBOOTSTRAP_CMD} \
-  ${DEBOOTSTRAP_KEYRING_OPTION} \
   --arch="${BUILD_ARCH}" \
   --include="${DEFAULT_PACKAGES_INCLUDE}" \
   --exclude="${DEFAULT_PACKAGES_EXCLUDE}" \
